@@ -29,7 +29,7 @@ az network public-ip create -n $pipName -g $rgName -l $location --allocation-met
 
 ```
 # Create vnet
-az network vnet create -n $appgwVnetName -g $rgName -l $location --address-prefix 10.0.0.0/16 --subnet-name $snetName --subnet-prefix 10.0.0.0/24
+az network vnet create -n $appgwVnetName -g $rgName -l $location --address-prefix 10.0.0.0/16 --subnet-name $appgwSnetName --subnet-prefix 10.0.0.0/24
 ```
 
 ```
@@ -39,7 +39,7 @@ az network application-gateway waf-policy create --name $wafPolicyName --resourc
 
 ```
 # Create application gateway
-az network application-gateway create -n $appgwName -l westeurope -g $rgName --sku WAF_v2 --public-ip-address $pipName --vnet-name $appgwVnetName --subnet $snetName --priority 100 --waf-policy $wafPolicyName
+az network application-gateway create -n $appgwName -l westeurope -g $rgName --sku WAF_v2 --public-ip-address $pipName --vnet-name $appgwVnetName --subnet $appgwSnetName --priority 100 --waf-policy $wafPolicyName
 ```
 
 ```
