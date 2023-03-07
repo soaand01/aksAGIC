@@ -61,7 +61,7 @@ az network vnet peering create -n AKStoAppGWVnetPeering -g $rgName --vnet-name $
 # Let's deploy a simple webserver application
 git clone https://github.com/soaand01/aksAGIC.git
 cd deployments
-kubectl creane namespace nginx
+kubectl create namespace nginx
 kubectl apply -f nginx-deployment.yaml -n nginx
 kubectl apply -f nginx-service.yaml -n nginx
 kubectl apply -f nginx-ingress.yaml -n nginx
